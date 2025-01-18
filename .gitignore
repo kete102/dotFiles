@@ -1,0 +1,6 @@
+# Ignorar la carpeta de plugins de tmux
+tmux/plugins/
+
+# Asegurar que no se ignore el resto de la carpeta tmux
+!tmux/
+

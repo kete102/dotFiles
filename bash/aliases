@@ -1,0 +1,9 @@
+#Clear terminal alias
+alias cls='clear'
+
+#Vim alias
+alias vim="nvim"
+
+#Tmux alias
+alias tma='tmux attach'
+alias tmd='tmux detach'
