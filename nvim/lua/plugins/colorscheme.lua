@@ -35,7 +35,7 @@ return {
 
           -- Añadir transparencia para la columna de números de línea
           LineNr = { fg = theme.ui.fg_dim, bg = "NONE" }, -- Números de línea sin fondo
-          CursorLineNr = { fg = theme.ui.special, bg = "NONE" }, -- Número de la línea actual sin fondo
+          CursorLineNr = { fg = "#ff8800", bg = "NONE" }, -- Número de la línea actual sin fondo
         }
       end,
     })
