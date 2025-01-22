@@ -7,14 +7,14 @@ return {
     require("lualine").setup({
       options = {
 
-        theme = "kanagawa",
+        theme = "gruvbox_dark",
         icons_enbled = true,
       },
       sections = {
         lualine_a = {
           {
             "mode",
-            icon = " ",
+            icon = "",
           },
         },
       },

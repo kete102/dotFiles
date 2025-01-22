@@ -69,5 +69,11 @@ config.harfbuzz_features = { "calt=0", "clig=0", "liga=0" }
 config.freetype_load_flags = "NO_HINTING"
 config.font_shaper = "Harfbuzz"
 config.allow_square_glyphs_to_overflow_width = "WhenFollowedBySpace"
-
+config.window_background_opacity = 1
+config.window_background_image_hsb = {
+	brightness = 0.01, -- Reduce el brillo para oscurecer el fondo (valor entre 0.0 y 1.0)
+	hue = 1, -- Ajusta el tono (hue), déjalo en 1.0 si no quieres cambiarlo
+	saturation = 1, -- Ajusta la saturación; reduce si quieres colores más apagados
+}
+config.text_background_opacity = 1
 return config
