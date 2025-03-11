@@ -40,7 +40,7 @@ sudo pacman -S stow
 Clone the repository to your home directory:
 
 ```bash
-git clone https://github.com/<your-username>/dotfiles.git ~/dotfiles
+git clone git@github.com:kete102/dotFiles.git
 ```
 
 ### 3. Use Stow to Apply Configurations 🛠️
