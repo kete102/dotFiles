@@ -11,8 +11,5 @@ return {
         winblend = vim.o.pumblend,
       },
     },
-    sources = {
-      default = { "lsp", "path", "snippets", "buffer" },
-    },
   },
 }
