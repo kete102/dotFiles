@@ -1,15 +1,16 @@
 # --------------- Apariencia ---------------
 [window]
-opacity = 1.0              # Equivalente a `window_background_opacity`
+opacity = 1.0
 decorations = "none"
 padding = { x = 0, y = 0 }
 dynamic_padding = false
 dynamic_title = true
 
 [scrolling]
-history = 10000 # Buffer de scroll
+history = 10000
+multiplier = 3
 
-# --------------- Colores ---------------
+# --------------- Colors ---------------
 [colors.primary]
 foreground = "#dcd7ba"
 background = "#000000"
@@ -42,18 +43,25 @@ magenta = "#938aa9"
 cyan = "#7aa89f"
 white = "#dcd7ba"
 
-# --------------- Fuente ---------------
+# --------------- Font ---------------
 [font]
-size = 18
+size = 16
 
 [font.normal]
 family = "JetBrainsMono Nerd Font"
+style = "Medium"
 
 [font.bold]
 family = "JetBrainsMono Nerd Font"
+style = "Bold"
 
 [font.italic]
 family = "JetBrainsMono Nerd Font"
+style = "MediumItalic"
+
+[font.bold_italic]
+family = "JetBrainsMono Nerd Font"
+style = "BoldItalic"
 
 [font.offset]
 x = 0
@@ -64,7 +72,10 @@ x = 0
 y = 0
 
 [env]
-TERM = "xterm-256color" # Mejor compatibilidad
+TERM = "xterm-256color"
+
+[selection]
+save_to_clipboard = false
 
 [debug]
 log_level = "Warn"
