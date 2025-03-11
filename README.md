@@ -5,7 +5,7 @@ organized for easy setup and management across systems using `stow`.
 
 ## Overview 🌟
 
-- **Neovim (**`nvim`\*\*):
+- **Neovim (**`nvim`):
   Configuration files for Neovim.
 - **Tmux**: Custom settings and plugins for tmux.
 - **Alacritty**: Configuration for Alacritty terminal emulator.
