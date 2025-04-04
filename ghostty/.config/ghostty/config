@@ -1,0 +1,8 @@
+theme = rose-pine
+background = 000000
+font-size = 18
+font-family = JetBrainsMono Nerd Font
+window-padding-x = 0
+window-padding-y = 0
+window-vsync = true
+window-decoration = none
