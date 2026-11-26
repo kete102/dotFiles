@@ -5,29 +5,32 @@ organized for easy setup and management across systems using `stow`.
 
 ## Overview 🌟
 
-- **Neovim (**`nvim`):
-  Configuration files for Neovim.
-- **Tmux**: Custom settings and plugins for tmux.
-- **Alacritty**: Configuration for Alacritty terminal emulator.
-- **Wezterm**: Configuration for Wezterm terminal emulator.
+- **Neovim** (`nvim`): Native `vim.pack` based configuration with the built-in LSP client.
+- **Tmux** (`tmux`): Config split into modules (theme, statusline, utility), plugins managed by TPM.
+- **Ghostty** (`ghostty`): Terminal config, including a custom cursor smear shader.
+- **Wezterm** (`wezterm`): Configuration for the Wezterm terminal emulator.
 
 ## 📁 Structure
 
 ```plaintext
-.dotfiles/
-├── alacritty/    # Alacritty configuration
-├── wezterm/      # Wezterm configuration
-├── nvim/         # Neovim configuration
-├── tmux/         # tmux configuration and plugins
+dotFiles/
+├── ghostty/    # Ghostty configuration and shaders
+├── nvim/       # Neovim configuration
+├── tmux/       # tmux configuration
+└── wezterm/    # Wezterm configuration
 ```
+
+Each folder mirrors the home directory layout (e.g. `nvim/.config/nvim`), so `stow`
+can symlink it into place.
 
 ## 🚀 Installation
 
 ### 1. Install GNU Stow 📦
 
-Make sure you have `stow` installed before proceeding:
-
 ```bash
+# macOS
+brew install stow
+
 # On Debian/Ubuntu
 sudo apt install stow
 
@@ -40,27 +43,34 @@ sudo pacman -S stow
 Clone the repository to your home directory:
 
 ```bash
-git clone git@github.com:kete102/dotFiles.git
+git clone git@github.com:kete102/dotFiles.git ~/dotFiles
 ```
 
 ### 3. Use Stow to Apply Configurations 🛠️
 
-Navigate to the dotfiles directory and run:
-
 ```bash
-cd ~/dotfiles
-stow alacritty
-stow wezterm
+cd ~/dotFiles
 stow nvim
 stow tmux
+stow ghostty
+stow wezterm
 ```
 
 This will:
 
 - Link Neovim configurations to `~/.config/nvim` 📝
 - Link tmux configurations to `~/.config/tmux` 🛋️
-- Link Alacritty configurations to `~/.config/alacritty` 💻
+- Link Ghostty configurations to `~/.config/ghostty` 👻
 - Link Wezterm configurations to `~/.config/wezterm` 🖥️
+
+### 4. Install tmux plugins 🔌
+
+Plugins are not stored in this repo. Install [TPM](https://github.com/tmux-plugins/tpm)
+where `tmux.conf` expects it, then press `prefix + I` inside tmux:
+
+```bash
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+```
 
 ## 🎨 Customization
 
