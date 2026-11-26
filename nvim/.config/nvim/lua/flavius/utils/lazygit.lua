@@ -23,39 +23,18 @@ function M.focus_origin()
 	end
 end
 
--- Talks to the neovim instance that launched lazygit ($NVIM is its RPC socket).
-local nvim_server = 'nvim --server "$NVIM"'
+local script = vim.fn.stdpath("config") .. "/scripts/lazygit-edit.sh"
 
--- Refocus the launch pane from inside lazygit's terminal. `<Cmd>` runs in any
--- mode, and long brackets keep the single/double quotes free of escaping.
-local focus_launch_pane = nvim_server
-	.. [[ --remote-send '<Cmd>lua require("flavius.utils.lazygit").focus_origin()<CR>']]
-
---- Builds a lazygit `os.edit` / `os.editAtLine` command (fish syntax) that opens
---- the selected file in the pane lazygit was launched from rather than a new
---- tab. lazygit fills in `{{filename}}` (shell-quoted) and `{{line}}`.
+--- Builds a lazygit `os.edit` / `os.editAtLine` command that opens the selected
+--- file in the pane lazygit was launched from rather than a new tab. Delegates
+--- to a POSIX sh script, because lazygit runs the command through `$SHELL`
+--- (zsh, bash, fish...) and shell-specific syntax would break on other setups.
+--- lazygit fills in `{{filename}}` (shell-quoted) and `{{line}}`.
 --- @param opts? { at_line?: boolean } also jump to `{{line}}` after opening
 --- @return string
 function M.edit_command(opts)
 	local at_line = opts and opts.at_line
-
-	-- No $NVIM: lazygit was launched outside neovim, so just edit directly.
-	local outside_neovim = at_line and "nvim +{{line}} -- {{filename}}" or "nvim -- {{filename}}"
-
-	-- Inside neovim: quit lazygit, return to the launch pane, open the file there.
-	local inside_neovim = {
-		nvim_server .. ' --remote-send "q"',
-		focus_launch_pane,
-		nvim_server .. " --remote {{filename}}",
-	}
-	if at_line then
-		inside_neovim[#inside_neovim + 1] = nvim_server .. ' --remote-send ":{{line}}<CR>"'
-	end
-
-	return ('begin; if test -z "$NVIM"; %s; else; %s; end; end'):format(
-		outside_neovim,
-		table.concat(inside_neovim, "; ")
-	)
+	return ("sh %s {{filename}}%s"):format(vim.fn.shellescape(script), at_line and " {{line}}" or "")
 end
 
 return M
