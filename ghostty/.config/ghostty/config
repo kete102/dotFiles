@@ -54,6 +54,13 @@ window-padding-balance = true
 window-height = 100
 window-width = 100
 
+window-width = 216
+window-height = 56
+
+window-padding-x = 4
+window-padding-y = 4
+window-padding-balance = true
+
 window-vsync = true
 
 gtk-tabs-location = hidden
