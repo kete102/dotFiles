@@ -1,0 +1,5 @@
+# Generated / machine-specific, recreated by the gentle-ai installer and opencode
+node_modules
+package.json
+package-lock.json
+bun.lock
