@@ -36,6 +36,23 @@ sudo apt install stow
 sudo pacman -S stow
 ```
 
+### Requirements (Linux / Pop!_OS) 🐧
+
+The configs work on both macOS and Linux. On Pop!_OS, install these first:
+
+```bash
+sudo apt install stow tmux ripgrep fd-find build-essential nodejs npm \
+  wl-clipboard   # Wayland (COSMIC); use xclip on X11
+```
+
+- **Neovim 0.12+**: the config uses `vim.pack` and `vim.lsp.config`. The apt package is too old,
+  so install it from the [official release](https://github.com/neovim/neovim/releases) (tarball or AppImage).
+- **lazygit**: not in the default apt repos, install it from its [releases](https://github.com/jesseduffield/lazygit/releases).
+- **Ghostty**: see the [install docs](https://ghostty.org/docs/install/binary).
+- **IosevkaTerm Nerd Font**: install it into `~/.local/share/fonts` and run `fc-cache -f`.
+- **tmux clipboard**: `y` in copy-mode uses `pbcopy` (macOS), `wl-copy` (Wayland) or `xclip` (X11)
+  automatically.
+
 ### 2. Clone the Repository 💍
 
 Clone the repository to your home directory:
