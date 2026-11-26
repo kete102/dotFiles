@@ -8,7 +8,6 @@ organized for easy setup and management across systems using `stow`.
 - **Neovim** (`nvim`): Native `vim.pack` based configuration with the built-in LSP client.
 - **Tmux** (`tmux`): Config split into modules (theme, statusline, utility), plugins managed by TPM.
 - **Ghostty** (`ghostty`): Terminal config, including a custom cursor smear shader.
-- **Wezterm** (`wezterm`): Configuration for the Wezterm terminal emulator.
 
 ## 📁 Structure
 
@@ -16,8 +15,7 @@ organized for easy setup and management across systems using `stow`.
 dotFiles/
 ├── ghostty/    # Ghostty configuration and shaders
 ├── nvim/       # Neovim configuration
-├── tmux/       # tmux configuration
-└── wezterm/    # Wezterm configuration
+└── tmux/       # tmux configuration
 ```
 
 Each folder mirrors the home directory layout (e.g. `nvim/.config/nvim`), so `stow`
@@ -53,7 +51,6 @@ cd ~/dotFiles
 stow nvim
 stow tmux
 stow ghostty
-stow wezterm
 ```
 
 This will:
@@ -61,7 +58,6 @@ This will:
 - Link Neovim configurations to `~/.config/nvim` 📝
 - Link tmux configurations to `~/.config/tmux` 🛋️
 - Link Ghostty configurations to `~/.config/ghostty` 👻
-- Link Wezterm configurations to `~/.config/wezterm` 🖥️
 
 ### 4. Install tmux plugins 🔌
 
